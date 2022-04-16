@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# App to Read Input and Display Word and Character Count and Character Map
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
