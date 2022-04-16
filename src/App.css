@@ -1,19 +1,22 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #d8c2c25c;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-  background-image: "./tealbg.jpg";
+  color: rgb(23, 19, 19);
+  font-family: Cambria;
 }
 
-.divStyle {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+.textfield {
+  width: 50rem;
+
+}
+
+.textinfo,
+.display {
+  padding-top: 20px;
 }

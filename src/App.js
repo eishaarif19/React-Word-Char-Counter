@@ -1,44 +1,38 @@
-import React, { useState } from "react";
-import UserOutput from "./Components/UserOutput";
-import UserInput from "./Components/UserInput";
-import "./App.css";
-import tealbg from './tealbg.jpg';
+import React, { createContext, useState } from 'react';
+import './App.css';
+import TextInformation from './components/TextInformation';
+import ErrorBoundary from './components/ErrorBoundary';
 
-const App = () => {
-  const [username, setUsername] = useState("eisha19");
+import TextField from '@mui/material/TextField';
 
-  const changeHandler = (value) => {
+export const TextContext = createContext();
+TextContext.displayName = 'TextContext';
 
-    setUsername(value);
-  };
-
-
+function App() {
+  const [text, setText] = useState('');
 
   return (
-    <div className="App" style={{
-      backgroundImage: `url(${tealbg})`,
-      backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
-    }}>
+    <TextContext.Provider value={text}>
+      <div className="App">
+        <div className='typo'>
+          <h3>
+            Add Your Text Here:
+          </h3>
+        </div>
+        <div className='textfield'>
+          <TextField hiddenLabel autoComplete='off' color='secondary' onChange={e => setText(e.target.value)} />
+        </div>
 
-      <div >
-
-        <UserInput
-          username={username}
-          onChange={(value) => changeHandler(value)} />
-
-        <div className="divStyle">
-          <UserOutput id="1" username={username} />
-
-          <UserOutput id="2" username={username} />
-
-          <UserOutput id="3" username={username} />
-
-          <UserOutput id="4" username={username} />
+        <div className='textinfo'>
+          <ErrorBoundary >
+            <TextInformation />
+          </ErrorBoundary>
         </div>
 
       </div>
-    </div>
-  );
-};
+    </TextContext.Provider>
+  )
+}
+
 
 export default App;
